@@ -24,3 +24,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/example', function () {
     return view('example');
 });
+
+
+
+Route::get('/event', 'AccessDetectionController@index');
