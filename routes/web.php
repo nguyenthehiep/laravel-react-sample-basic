@@ -13,18 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
+Auth::routes();
+Auth::routes(['verify' => true]);
+Route::get('/event', 'AccessDetectionController@index')->middleware('verified');;
+
 Route::get('/', function () {
     return view('welcome');
 });
-
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('/example', function () {
     return view('example');
 });
-
-
-
-Route::get('/event', 'AccessDetectionController@index');
